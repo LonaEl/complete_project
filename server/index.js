@@ -6,6 +6,7 @@ import cors from 'cors';
 
 import postRoutes from './routes/posts.js';
 import userRouter from "./routes/user.js";
+import claimRouter from "./routes/claim.js";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 app.use("/user", userRouter);
+app.use("/claim", claimRouter);
 
 const CONNECTION_URL = 'mongodb+srv://witsie:witsie123@cluster0.cr5jvbx.mongodb.net/?retryWrites=true&w=majority';
 const PORT = process.env.PORT|| 5000;

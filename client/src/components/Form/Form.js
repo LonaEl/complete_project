@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Typography, Paper } from '@material-ui/core';
+import { TextField, Button, Typography, Paper, Box } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
-import { useHistory } from 'react-router-dom';
-import ChipInput from 'material-ui-chip-input';
+import { Link, useHistory } from 'react-router-dom';
+
 
 import { createPost, updatePost } from '../../actions/posts';
 import useStyles from './styles';
@@ -95,11 +95,12 @@ const Form = ({ currentId, setCurrentId }) => {
         </div>
 
         <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
-        <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-        <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
+        <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Upload</Button>
+        <Typography variant='h8'>By uploading, you agree to the <Box component={Link} to="/termsandconditions">terms and conditions</Box> </Typography>
       </form>
     </Paper>
   );
 };
 
 export default Form;
+//  <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
