@@ -20,7 +20,7 @@ app.use('/posts', postRoutes);
 app.use("/user", userRouter);
 app.use("/claim", claimRouter);
 
-const CONNECTION_URL = 'mongodb+srv://witsie:witsie123@cluster0.cr5jvbx.mongodb.net/?retryWrites=true&w=majority';
+const CONNECTION_URL = process.env.DATABASE_ACCESS;
 const PORT = process.env.PORT|| 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
