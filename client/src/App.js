@@ -9,9 +9,13 @@ import Auth from './components/Auth/Auth';
 import CreatorOrTag from './components/CreatorOrTag/CreatorOrTag';
 import Claim from './components/Claim/Claim';
 
+/* import { useDispatch } from 'react-redux';
+to dispatch an action
+ */
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'));
+  //const dispatch = useDispatch();
 
   return (
     <BrowserRouter>

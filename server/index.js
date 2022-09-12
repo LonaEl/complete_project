@@ -14,6 +14,8 @@ app.use(express.json({ limit: '30mb', extended: true }))
 app.use(express.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
+
+//first parameter is the starting path
 app.use('/posts', postRoutes);
 app.use("/user", userRouter);
 app.use("/claim", claimRouter);
@@ -26,3 +28,5 @@ mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: tr
   .catch((error) => console.log(`${error} did not connect`));
 
 mongoose.set('useFindAndModify', false);
+
+//useNewUrlParser true and useUnifiedTopology true are not required, but rather for warning purposes in the console. Same with mongoose.set

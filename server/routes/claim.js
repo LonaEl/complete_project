@@ -3,7 +3,7 @@ import express from "express";
 import Claim from "../models/claim.js";
 const router = express.Router();
 
-router.post("/claim", async(req, res) =>{
+/* router.post("/claim", async(req, res) =>{
     const newClaim = new Claim ({
         fullName: req.body.fullName,
         email: req.body.email,
@@ -20,5 +20,20 @@ router.post("/claim", async(req, res) =>{
             res.status(500).json(error)
         }
 });
+ */
+router.post("/claim", async(req, res) => {
+    const claim = req.body;
+
+    const newClaim = new Claim(claim);
+    try {
+        await newClaim.save();
+        res.status(201).json(newClaim);
+    } catch (error) {
+        res.status(409).json(error);
+    }
+})
+
+
+
 
 export default router

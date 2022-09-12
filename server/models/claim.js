@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
 
-const claimSchema = new mongoose.Schema({
-fullName: {type: String, required: true},
+const claimSchema = mongoose.Schema({
+firstName: {type: String, required: true},
+lastName: {type: String, required: true},
 email: {type: String, required: true},
-amount: {type: Number, required: true},
+amount: {type: String, required: true},
 bankName: {type: String, required: true},
-accountNumber: {type: Number, required: true},
+accountNumber: {type: String, required: true},
 typeOfAccount: {type: String, required: true}
 },
 {timestamps: true}
