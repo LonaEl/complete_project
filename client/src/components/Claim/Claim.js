@@ -30,7 +30,7 @@ const clear = () => {
 
   return (
     <Paper elevation={6} >
-      <Typography variant='h6' >Claiming form</Typography>
+      <Typography variant='h6' >Claiming here</Typography>
 
       <form autoComplete='off' onSubmit={Submit} >
       <TextField 
