@@ -12,9 +12,20 @@ const Claim = () => {
 const dispatch = useDispatch();
 const history = useHistory();
 
+
+const clear = () => {
+  setClaimData({   firstName: '', lastName: '', email: '', amount: '', bankName: '', accountNumber: '', typeOfAccount: ''})
+}
+
  const Submit = (e) => {
     e.preventDefault();
       dispatch(claim(claimData));
+     clear();
+     return (
+      <div>
+        "Thank you, your claim is being processed"
+      </div>
+     )
 };
 
   return (
@@ -26,6 +37,7 @@ const history = useHistory();
         name="fistName" 
         variant="outlined" 
         label="First Name" 
+        required
         fullWidth 
        value={claimData.firstName} 
        onChange={(e) => setClaimData({...claimData, firstName:e.target.value})}
@@ -33,8 +45,9 @@ const history = useHistory();
 
       <TextField 
         name="lastName" 
-        variant="outlined" 
+       variant="outlined" 
         label="Last Name" 
+        required
         fullWidth 
         value={claimData.lastName} 
         onChange={(e) => setClaimData({...claimData, lastName:e.target.value})}
@@ -42,8 +55,10 @@ const history = useHistory();
       
        <TextField 
         name="email" 
-        variant="outlined" 
+       variant="outlined" 
         label="Email" 
+        type="email"
+        required
         fullWidth 
         value={claimData.email} 
        onChange={(e) => setClaimData({...claimData, email:e.target.value})}
@@ -53,6 +68,7 @@ const history = useHistory();
         name="amount" 
         variant="outlined" 
         label="Amount" 
+        required
         fullWidth 
         value={claimData.amount} 
         onChange={(e) => setClaimData({...claimData, amount:e.target.value})}
@@ -60,7 +76,8 @@ const history = useHistory();
          <TextField 
         name="bankName" 
         variant="outlined" 
-        label="Name of the bank" 
+        label="Name of the bank"
+        required 
         fullWidth 
         value={claimData.bankName} 
        onChange={(e) => setClaimData({...claimData, bankName:e.target.value})}
@@ -69,6 +86,7 @@ const history = useHistory();
         name="accountNumber" 
         variant="outlined" 
         label="Account Number" 
+        required
         fullWidth 
         value={claimData.accountNumber} 
         onChange={(e) => setClaimData({...claimData, accountNumber:e.target.value})}
@@ -77,6 +95,7 @@ const history = useHistory();
         name="typeOfAccount" 
         variant="outlined" 
         label="Type of Account" 
+        required
         fullWidth 
         value={claimData.typeOfAccount} 
         onChange={(e) => setClaimData({...claimData, typeOfAccount:e.target.value})}
