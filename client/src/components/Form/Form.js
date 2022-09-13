@@ -95,7 +95,12 @@ const Form = ({ currentId, setCurrentId }) => {
               />
         </div>
 
-        <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
+        <div className={classes.fileInput}>
+          <FileBase type="file" 
+          multiple={false} 
+          onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
+       
+       
         <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Upload</Button>
         <Typography variant='h8'>By uploading, you agree to the <Box component={Link} to="/termsandconditions">terms and conditions</Box> </Typography>
       </form>
