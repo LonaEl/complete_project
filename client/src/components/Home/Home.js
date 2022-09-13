@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { Container, Grow, Grid, AppBar, TextField, Button, Paper } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import ChipInput from 'material-ui-chip-input';
 
 import { getPostsBySearch } from '../../actions/posts';
+
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 import Pagination from '../Pagination';
@@ -34,12 +35,16 @@ const Home = () => {
       history.push('/');
     }
   };
+/* 
+  useEffect(() => {
+      dispatch(getPostsBySearch(search));
+  },[search]);  */
 
-  const handleKeyPress = (e) => {
+ const handleKeyPress = (e) => {
     if (e.keyCode === 13) {
       searchPost();
     }
-  };
+  }; 
 
   const handleAddChip = (tag) => setTags([...tags, tag]);
 
@@ -54,7 +59,15 @@ const Home = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <AppBar className={classes.appBarSearch} position="static" color="inherit">
-              <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Memories" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} />
+             
+              <TextField 
+              onKeyDown={handleKeyPress} 
+              name="search" 
+              variant="outlined" 
+              label="Search Titles" 
+              fullWidth 
+              value={search} 
+              onChange={(e) => setSearch(e.target.value)} />
               
               <ChipInput
                 style={{ margin: '10px 0' }}
