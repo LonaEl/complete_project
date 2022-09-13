@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-
 import PostDetails from './components/PostDetails/PostDetails';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
 import CreatorOrTag from './components/CreatorOrTag/CreatorOrTag';
 import Claim from './components/Claim/Claim';
+import Terms from './components/Terms/Terms';
 
 /* import { useDispatch } from 'react-redux';
 to dispatch an action
@@ -29,10 +29,8 @@ const App = () => {
           <Route path={['/creators/:name', '/tags/:name']} component={CreatorOrTag} />
           <Route path="/auth" exact component={() => (!user ? <Auth /> : <Redirect to="/posts" />)} />
           <Route path="/claim" exact component={Claim} />
-        
-          
-          </Switch> 
-        
+          <Route path="/termsandconditions" exact component={Terms} />
+        </Switch> 
       </Container>
     </BrowserRouter>
   );
