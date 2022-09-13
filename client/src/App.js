@@ -8,6 +8,7 @@ import Auth from './components/Auth/Auth';
 import CreatorOrTag from './components/CreatorOrTag/CreatorOrTag';
 import Claim from './components/Claim/Claim';
 import Terms from './components/Terms/Terms';
+import Pdf from './components/Pdf/Pdf';
 
 /* import { useDispatch } from 'react-redux';
 to dispatch an action
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/claim" exact component={Claim} />
           <Route path="/termsandconditions" exact component={Terms} />
         </Switch> 
+        <Pdf />
       </Container>
     </BrowserRouter>
   );
