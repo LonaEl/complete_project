@@ -7,6 +7,9 @@ import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
 import { useHistory } from 'react-router-dom';
+import Pdf from '../../Pdf/Pdf';
+
+import file from '../../Pdf/Pdf'
 
 import { likePost, deletePost } from '../../../actions/posts';
 import useStyles from './styles';
@@ -44,22 +47,41 @@ const Post = ({ post, setCurrentId }) => {
     return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>;
   };
 
-  const openPost = (e) => {
-    // dispatch(getPost(post._id, history));
-
+const openPost = (e) => {
     history.push(`/posts/${post._id}`);
-  };
+  }; 
+ /*  
+    
+ const openPost = (e) => {
+  history.push('/')
+  return (
+    <>
+    <Pdf />
+    </>
+  )
+}
+   */
+
+
+
+
 
   return (
     <Card className={classes.card} raised elevation={6}>
+
+
       <ButtonBase
         component="span"
         name="test"
         className={classes.cardAction}
         onClick={openPost}
       >
-        <CardMedia className={classes.media} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
-        <div className={classes.overlay}>
+        <CardMedia 
+        className={classes.media} 
+        image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'}
+        title={post.title} 
+        /> 
+      <div className={classes.overlay}>
           <Typography variant="h6">{post.name}</Typography>
           <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
         </div>
@@ -85,6 +107,10 @@ const Post = ({ post, setCurrentId }) => {
           <Typography variant="body2" color="textSecondary" component="p">{post.message.split(' ').splice(0, 20).join(' ')}...</Typography>
         </CardContent>
       </ButtonBase>
+
+
+
+
       <CardActions className={classes.cardActions}>
         <Button size="small" color="primary" disabled={!user?.result} onClick={handleLike}>
           <Likes />
