@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import { Document,Page } from 'react-pdf/dist/esm/entry.webpack';
+import { useSelector } from 'react-redux';
 import './Pdf.css';
-import file from './rich.pdf'
-function Pdf() {
 
+
+function Pdf() {
+  const { post } = useSelector((state) => state.posts);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -27,7 +29,7 @@ function Pdf() {
   return (
     <div className="App">
       <header className="App-header">
-        <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
+        <Document file={post.selectedFile} onLoadSuccess={onDocumentLoadSuccess}>
           <Page height="600" pageNumber={pageNumber} />
         </Document>
         <p> Page {pageNumber} of {numPages}</p>

@@ -6,6 +6,7 @@ import { useParams, useHistory, Link } from 'react-router-dom';
 
 import { getPost, getPostsBySearch } from '../../actions/posts';
 import CommentSection from './CommentSection';
+import Pdf from '../Pdf/Pdf';
 import useStyles from './styles';
 
 const Post = () => {
@@ -70,7 +71,7 @@ const Post = () => {
           <CommentSection post={post} />
 
 
-
+       
 
           <Divider style={{ margin: '20px 0' }} />
         </div>
@@ -80,7 +81,7 @@ const Post = () => {
       </div>
 
 
-
+  <Pdf />
 
       {!!recommendedPosts.length && (
         <div className={classes.section}>
