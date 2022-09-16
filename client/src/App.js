@@ -8,6 +8,8 @@ import Auth from './components/Auth/Auth';
 import CreatorOrTag from './components/CreatorOrTag/CreatorOrTag';
 import Claim from './components/Claim/Claim';
 import Terms from './components/Terms/Terms';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword';
+import PasswordReset from './components/PasswordRest/PasswordReset';
 
 
 
@@ -32,6 +34,8 @@ const App = () => {
           <Route path="/auth" exact component={() => (!user ? <Auth /> : <Redirect to="/posts" />)} />
           <Route path="/claim" exact component={Claim} />
           <Route path="/termsandconditions" exact component={Terms} />
+          <Route path="/forgot-password" exact component={ForgotPassword} />
+          <Route path="/forgot-reset/:id/:token" exact component={ PasswordReset } />
         </Switch>
       </Container>
     </BrowserRouter>
