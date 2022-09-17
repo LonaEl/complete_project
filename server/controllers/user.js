@@ -26,12 +26,15 @@ export const signin = async (req, res) => {
 };
 
 export const signup = async (req, res) => {
-  const { email, password, firstName, lastName } = req.body;
+ const { email, password, firstName, lastName } = req.body;
 
   try {
-    const oldUser = await UserModal.findOne({ email });
 
-    if (oldUser) return res.status(400).json({ message: "User already exists" });
+    const oldUser = await UserModal.findOne({ email: req.body.email });
+
+    if (oldUser) return res
+        .status(409)
+        .send({ message: "Email already exists" });
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
