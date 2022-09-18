@@ -1,7 +1,7 @@
 import createTheme from '@mui/system/createTheme';
 import { deepPurple, blue } from '@mui/material/colors';
 const theme = createTheme({
-  appBar: {
+  AppBar: {
     borderRadius: 15,
     margin: '30px 0',
     display: 'flex',

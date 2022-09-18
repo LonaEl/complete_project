@@ -10,14 +10,7 @@ import App from './App';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 
-
-
-
 const store = configureStore({reducer: reducers}, {}, compose(applyMiddleware(thunk)))
-
-
-
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

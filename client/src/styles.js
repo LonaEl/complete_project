@@ -1,13 +1,13 @@
 import createTheme  from "@mui/system/createTheme";
 const theme = createTheme ({
-breakpoints: {
-    sm: {
-      mainContainer: {
+  Container: {
+    breakpoints: {
+      sm: {
         flexDirection: 'column-reverse',
-    }
-  } 
+     } 
+  },
 },
-  appBar: {
+  AppBar: {
     borderRadius: 15,
     margin: '30px 0',
     display: 'flex',

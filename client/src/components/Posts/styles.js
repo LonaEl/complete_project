@@ -3,7 +3,7 @@ import { deepPurple } from '@mui/material/colors';
 import createTheme from '@mui/system/createTheme';
 
 const theme = createTheme({
-  mainContainer: {
+ Container: {
     borderRadius: 15,
     margin: '30px 0',
     display: 'flex',

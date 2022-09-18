@@ -6,7 +6,7 @@ const theme = createTheme ({
       margin: 1,
     },
   },
-  paper: {
+  Paper: {
     padding: 2,
   },
   form: {
@@ -18,7 +18,7 @@ const theme = createTheme ({
     width: '97%',
     margin: '10px 0',
   },
-  buttonSubmit: {
+  Button: {
     marginBottom: 10,
   },
 });

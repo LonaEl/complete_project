@@ -12,7 +12,7 @@ import  createTheme from "@mui/system/createTheme";
   fullHeightCard: {
     height: '100%',
   },
-  card: {
+  Card: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -43,12 +43,12 @@ import  createTheme from "@mui/system/createTheme";
   title: {
     padding: '0 16px',
   },
-  cardActions: {
+  CardActions: {
     padding: '0 16px 8px 16px',
     display: 'flex',
     justifyContent: 'space-between',
   },
-  cardAction: {
+  CardActions: {
     display: 'block',
     textAlign: 'initial',
   },

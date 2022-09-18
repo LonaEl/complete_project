@@ -1,20 +1,20 @@
 import createTheme from '@mui/system/createTheme'
 
 const theme = createTheme({
-  appBarSearch: {
+  AppBarSearch: {
     borderRadius: 4,
     marginBottom: '1rem',
     display: 'flex',
     padding: '16px',
   },
-  pagination: {
+  Pagination: {
     borderRadius: 4,
     marginTop: '1rem',
     padding: '16px',
   },
 
 
-  gridContainer: {
+  Grid: {
     breakpoints: {
       sm: {
         flexDirection: 'column-reverse',

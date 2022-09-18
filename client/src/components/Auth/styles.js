@@ -3,7 +3,7 @@
 import createTheme from "@mui/system/createTheme";
 import { blue } from '@mui/material/colors';
  const theme = createTheme({
-  paper: {
+  Paper: {
     marginTop: 8,
     display: 'flex',
     flexDirection: 'column',
@@ -15,7 +15,7 @@ import { blue } from '@mui/material/colors';
       margin: 1,
     },
   },
-  avatar: {
+  Avatar: {
     margin: 1,
     backgroundColor: blue,
   },
