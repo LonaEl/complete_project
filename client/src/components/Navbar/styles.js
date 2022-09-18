@@ -1,5 +1,5 @@
-import createTheme from '@mui/system/createTheme'
-import { deepPurple } from '@mui/material/colors';
+import createTheme from '@mui/system/createTheme';
+import { deepPurple, blue } from '@mui/material/colors';
 const theme = createTheme({
   appBar: {
     borderRadius: 15,
@@ -9,20 +9,16 @@ const theme = createTheme({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '10px 50px',
-
-
     breakpoints: {
       sm: {
         flexDirection: 'column',
       }
     } 
   },
-
-
 heading: {
     color: {
       palette : {
-        primary
+       color:  blue
       }
     },
     textDecoration: 'none',
@@ -68,8 +64,7 @@ image: {
     display: 'flex',
     alignItems: 'center',
   },
-
-  purple: {
+purple: {
     color: {
       palette: {
         color: deepPurple[500],
@@ -77,10 +72,7 @@ image: {
       }
     } 
   },
-
-
 });
-
 export default theme;
 
 /* export default makeStyles((theme) => ({

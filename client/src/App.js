@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '@mui/material'
-import { BrowserRouter, Routes, Route, redirect } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+
 import PostDetails from './components/PostDetails/PostDetails';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
@@ -11,27 +12,24 @@ import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import Claim from './components/Claim/Claim';
 import Terms from './components/Terms/Terms';
 
-
-
 const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'));
-
 
   return (
     <BrowserRouter>
       <Container maxWidth="xl">
         <Navbar />
         <Routes>
-          <Route path="/" exact element={() => <redirect to="/posts" />} />
-          <Route path="/posts" exact element={<Home />} />
-          <Route path="/posts/search" exact element={<Home />} />
-          <Route path="/posts/:id" exact element={<PostDetails />} />
-          <Route path={['/creators/:name', '/tags/:name']} exact element={CreatorOrTag} />
-         <Route path="/auth" exact element={() => (!user ? <Auth /> : <redirect to="/posts" />)} />
-          <Route path="/claim" exact element={<Claim />} />
-          <Route path="/termsandconditions" exact element={<Terms />} />
-          <Route path="/forgot-password" exact element={<ForgotPassword />} />
-          <Route path="/forgot-reset/:id/:token" exact element={<PasswordReset /> } />
+          <Route exact path="/" element={() => <Navigate to="/posts" />} />
+          <Route exact path="/posts" element={<Home />} />
+          <Route exact path="/posts/search" element={<Home />} />
+          <Route exact path="/posts/:id" element={<PostDetails />} />
+          <Route exact path={['/creators/:name', '/tags/:name']} element={CreatorOrTag} />
+          <Route exact path="/auth" element={() => (!user ? <Auth /> : <Navigate to="/posts" />)} />
+          <Route exact path="/claim" element={<Claim />} />
+          <Route exact path="/termsandconditions" element={<Terms />} />
+          <Route exact path="/forgot-password" element={<ForgotPassword />} />
+          <Route exact path="/forgot-reset/:id/:token" element={<PasswordReset /> } />
         </Routes>
       </Container>
     </BrowserRouter>

@@ -1,10 +1,9 @@
 
 import createTheme from '@mui/system/createTheme';
-
 const theme = createTheme ({
   root: {
     '& .MuiTextField-root': {
-      margin: theme.spacing(1),
+      margin: 1,
     },
   },
   paper: {

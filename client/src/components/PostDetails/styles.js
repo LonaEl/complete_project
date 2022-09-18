@@ -24,16 +24,25 @@ section: {
   },
   imageSection: {
     marginLeft: '20px',
-    [theme.breakpoints.down('sm')]: {
-      marginLeft: 0,
-    },
+
+    breakpoints: {
+      sm: {
+        marginLeft: 0,
+      }
+    } 
   },
+
+
   recommendedPosts: {
     display: 'flex',
-    [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column',
-    },
-  },
+    breakpoints: {
+      sm: {
+        flexDirection: 'column',
+      }
+    } 
+},
+
+
   loadingPaper: {
     display: 'flex',
     justifyContent: 'center',

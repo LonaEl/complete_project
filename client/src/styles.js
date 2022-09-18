@@ -1,4 +1,4 @@
-import { makeStyles } from "@mui/styles";
+/* import { makeStyles } from "@mui/styles";
 
 export default makeStyles((theme) => ({
   [theme.breakpoints.down('sm')]: {
@@ -20,4 +20,4 @@ export default makeStyles((theme) => ({
   image: {
     marginLeft: '15px',
   },
-}));
+})); */

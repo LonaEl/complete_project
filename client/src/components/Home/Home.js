@@ -54,7 +54,7 @@ const Home = () => {
     <ThemeProvider theme={theme}>
     <Grow in>
       <Container maxWidth="xl">
-        <Grid container justifyContent="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
+        <Grid container justifyContent="space-between" alignItems="stretch" spacing={3} >
           <Grid item xs={12} sm={6} md={9}>
             <Posts setCurrentId={setCurrentId} />
           </Grid>
