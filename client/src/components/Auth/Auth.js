@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-
+import ThemeProvider from '@mui/system/ThemeProvider';
 import LockOutlinedIcon  from '@mui/icons-material/LockOutlined'
 import { signin, signup } from '../../actions/auth';
 
-import useStyles from './styles';
+import theme from './styles';
 
 import Input from './Input';
 
@@ -18,7 +18,7 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const classes = useStyles();
+  //const classes = useStyles();
 
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => setShowPassword(!showPassword);
@@ -43,12 +43,13 @@ const SignUp = () => {
 
   return (
     <Container component="main" maxWidth="xs">
-      <Paper className={classes.paper} elevation={6}>
-        <Avatar className={classes.avatar}>
+      <ThemeProvider theme={theme} >
+      <Paper elevation={6}>
+        <Avatar >
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5"> { isSignup ? 'Sign up' : 'Sign in' }</Typography>
-        <form className={classes.form} onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             { isSignup && (
             <>
@@ -65,7 +66,7 @@ const SignUp = () => {
             <Link to="/forgot-password"> <p>Forgot Password?</p> </Link>
             </>
            )} 
-        <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+        <Button type="submit" fullWidth variant="contained" color="primary" >
             { isSignup ? 'Sign Up' : 'Sign In' }
           </Button>
         <Grid container justify="flex-end">
@@ -77,6 +78,7 @@ const SignUp = () => {
           </Grid>
         </form>
       </Paper>
+      </ThemeProvider>
     </Container>
   );
 };
