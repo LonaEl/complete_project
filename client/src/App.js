@@ -1,7 +1,9 @@
 import React from 'react';
 import { Container } from '@mui/material'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import ThemeProvider from '@mui/system/ThemeProvider';
 
+import theme from './styles'
 import PostDetails from './components/PostDetails/PostDetails';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
@@ -16,23 +18,24 @@ const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'));
 
   return (
-    <BrowserRouter>
-      <Container maxWidth="xl">
+    <ThemeProvider theme={theme} >
+     <Container maxWidth="xl">
         <Navbar />
         <Routes>
-          <Route exact path="/" element={() => <Navigate to="/posts" />} />
+          <Route exact path="/" element={ <Navigate to="/posts" />} />
           <Route exact path="/posts" element={<Home />} />
           <Route exact path="/posts/search" element={<Home />} />
           <Route exact path="/posts/:id" element={<PostDetails />} />
-          <Route exact path={['/creators/:name', '/tags/:name']} element={CreatorOrTag} />
-          <Route exact path="/auth" element={() => (!user ? <Auth /> : <Navigate to="/posts" />)} />
+          <Route exact path='/tags/:name' element={<CreatorOrTag />} />
+          <Route exact path='/creators/:name' element={<CreatorOrTag />} />
+          <Route exact path="/auth" element={(!user ? <Auth /> : <Navigate to="/posts" />)} />
           <Route exact path="/claim" element={<Claim />} />
           <Route exact path="/termsandconditions" element={<Terms />} />
           <Route exact path="/forgot-password" element={<ForgotPassword />} />
           <Route exact path="/forgot-reset/:id/:token" element={<PasswordReset /> } />
         </Routes>
       </Container>
-    </BrowserRouter>
+    </ThemeProvider>
   );
 };
 

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { TextField, Button, Typography, Paper} from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { claim } from '../../actions/claim';
 
 const Claim = () => {
@@ -9,7 +8,6 @@ const Claim = () => {
     firstName: '', lastName: '', email: '', amount: '', bankName: '', accountNumber: '', typeOfAccount: ''
   });
 const dispatch = useDispatch();
-const navigate = useNavigate();
 
 
 const clear = () => {
@@ -22,7 +20,7 @@ const clear = () => {
      clear();
      return (
       <div>
-        "Thank you, your claim is being processed"
+        <p>"Thank you, your claim is being processed"</p>
       </div>
      )
 };
