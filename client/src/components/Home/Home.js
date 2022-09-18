@@ -1,8 +1,8 @@
 import React, { useState} from 'react';
-import { Container, Grow, Grid, AppBar, TextField, Button, Paper } from '@material-ui/core';
+import { Container, Grow, Grid, AppBar, TextField, Button, Paper } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { useHistory, useLocation } from 'react-router-dom';
-import ChipInput from 'material-ui-chip-input';
+import { useNavigate, useLocation } from 'react-router-dom';
+//import ChipInput from 'material-ui-chip-input';
 
 import { getPostsBySearch } from '../../actions/posts';
 
@@ -25,14 +25,14 @@ const Home = () => {
 
   const [search, setSearch] = useState('');
   const [tags, setTags] = useState([]);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const searchPost = () => {
     if (search.trim() || tags) {
       dispatch(getPostsBySearch({ search, tags: tags.join(',') }));
-      history.push(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
+      navigate(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
     } else {
-      history.push('/');
+      navigate('/');
     }
   };
 /* 
@@ -69,6 +69,7 @@ const Home = () => {
               value={search} 
               onChange={(e) => setSearch(e.target.value)} />
               
+             {/*  
               <ChipInput
                 style={{ margin: '10px 0' }}
                 value={tags}
@@ -77,7 +78,7 @@ const Home = () => {
                 label="Search Tags"
                 variant="outlined"
               />
-
+ */}
 
 
               <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">Search</Button>

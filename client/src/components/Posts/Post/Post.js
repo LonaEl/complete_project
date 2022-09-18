@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography, ButtonBase } from '@material-ui/core/';
-import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-import DeleteIcon from '@material-ui/icons/Delete';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, ButtonBase } from '@mui/material/';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import DeleteIcon from '@mui/icons-material/Delete';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import ThumbUpAltOutlined from '@mui/icons-material/ThumbUpAltOutlined';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { likePost, deletePost } from '../../../actions/posts';
 import useStyles from './styles';
@@ -15,7 +15,7 @@ const Post = ({ post, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem('profile'));
   const [likes, setLikes] = useState(post?.likes);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const classes = useStyles();
 
   const userId = user?.result.googleId || user?.result?._id;
@@ -45,7 +45,7 @@ const Post = ({ post, setCurrentId }) => {
   };
 
 const openPost = (e) => {
-    history.push(`/posts/${post._id}`);
+    navigate(`/posts/${post._id}`);
   }; 
  
 return (

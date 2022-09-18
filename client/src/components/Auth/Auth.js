@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@mui/material';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import LockOutlinedIcon  from '@mui/icons-material/LockOutlined'
 import { signin, signup } from '../../actions/auth';
@@ -15,7 +15,7 @@ const SignUp = () => {
   const [form, setForm] = useState(initialState);
   const [isSignup, setIsSignup] = useState(false);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const classes = useStyles();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -31,9 +31,9 @@ const SignUp = () => {
     e.preventDefault();
 
     if (isSignup) {
-      dispatch(signup(form, history));
+      dispatch(signup(form, navigate));
     } else {
-      dispatch(signin(form, history));
+      dispatch(signin(form, navigate));
     }
   };
 
