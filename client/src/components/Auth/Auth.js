@@ -7,6 +7,7 @@ import LockOutlinedIcon  from '@mui/icons-material/LockOutlined'
 import { signin, signup } from '../../actions/auth';
 
 import useStyles from './styles';
+
 import Input from './Input';
 
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
@@ -16,6 +17,7 @@ const SignUp = () => {
   const [isSignup, setIsSignup] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const classes = useStyles();
 
   const [showPassword, setShowPassword] = useState(false);

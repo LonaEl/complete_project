@@ -6,6 +6,8 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
 import CreatorOrTag from './components/CreatorOrTag/CreatorOrTag';
+import PasswordReset from './components/PasswordReset/PasswordReset';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import Claim from './components/Claim/Claim';
 import Terms from './components/Terms/Terms';
 

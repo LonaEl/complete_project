@@ -8,6 +8,7 @@
         "@emotion/styled": "^11.10.4",
         "@mui/icons-material": "^5.10.3",
         "@mui/material": "^5.10.5",
+        "@mui/system": "^5.10.5",
         "@redux-devtools/dock-monitor": "^3.0.1",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
@@ -31,7 +32,6 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
-
     "eslintConfig": {
         "extends": "react-app"
     },
