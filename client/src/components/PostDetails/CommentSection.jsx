@@ -1,16 +1,15 @@
 import React, { useState, useRef } from 'react';
 import { Typography, TextField, Button } from '@mui/material/';
 import { useDispatch } from 'react-redux';
-
+import ThemeProvider from '@mui/system/ThemeProvider'
 import { commentPost } from '../../actions/posts';
-import useStyles from './styles';
+import theme from './styles';
 
 const CommentSection = ({ post }) => {
   const user = JSON.parse(localStorage.getItem('profile'));
   const [comment, setComment] = useState('');
   const dispatch = useDispatch();
   const [comments, setComments] = useState(post?.comments);
-  const classes = useStyles();
   const commentsRef = useRef();
 
   const handleComment = async () => {
@@ -23,9 +22,10 @@ const CommentSection = ({ post }) => {
   };
 
   return (
+    <ThemeProvider theme={theme}>
     <div>
-      <div className={classes.commentsOuterContainer}>
-        <div className={classes.commentsInnerContainer}>
+      <div>
+        <div >
           <Typography gutterBottom variant="h6">Comments</Typography>
           {comments?.map((c, i) => (
             <Typography key={i} gutterBottom variant="subtitle1">
@@ -45,6 +45,7 @@ const CommentSection = ({ post }) => {
         </div>
       </div>
     </div>
+   </ThemeProvider>
   );
 };
 

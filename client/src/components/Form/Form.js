@@ -3,10 +3,10 @@ import { TextField, Button, Typography, Paper, Box, Checkbox} from '@mui/materia
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 import { Link, useNavigate } from 'react-router-dom';
-
+import ThemeProvider from '@mui/system/ThemeProvider';
 
 import { createPost, updatePost } from '../../actions/posts';
-import useStyles from './styles';
+import theme from './styles';
 
 const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({ title: '', message: '', tags: '', selectedFile: '' });
@@ -14,7 +14,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const post = useSelector((state) => (currentId ? state.posts.posts.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
-  const classes = useStyles();
+
   const user = JSON.parse(localStorage.getItem('profile'));
   const navigate = useNavigate();
 
@@ -46,11 +46,13 @@ const Form = ({ currentId, setCurrentId }) => {
 
   if (!user?.result?.name) {
     return (
-      <Paper className={classes.paper} elevation={6}>
+      <ThemeProvider theme={theme} >
+      <Paper elevation={6}>
         <Typography variant="h6" align="center">
           Please Sign In to create your own memories and like other's memories.
         </Typography>
       </Paper>
+      </ThemeProvider>
     );
   }
 
@@ -68,8 +70,9 @@ const Form = ({ currentId, setCurrentId }) => {
   //};
 
   return (
-    <Paper className={classes.paper} elevation={6}>
-      <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
+    <ThemeProvider theme={theme}>
+    <Paper elevation={6}>
+      <form autoComplete="off" noValidate  onSubmit={handleSubmit}>
         <Typography variant="h6">{currentId ? `Editing "${post?.title}"` : 'Creating '}</Typography>
        
        
@@ -106,7 +109,7 @@ const Form = ({ currentId, setCurrentId }) => {
               />
         </div>
 
-        <div className={classes.fileInput}>
+        <div>
           <FileBase type="file" 
           multiple={false} 
           onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} />
@@ -115,10 +118,10 @@ const Form = ({ currentId, setCurrentId }) => {
             checked={isTrue}
             onChange={handleChange} />
  <Typography variant='h8'>I agree to the <Box component={Link} to="/termsandconditions">terms and conditions</Box> </Typography>
-        <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Upload</Button>
+        <Button variant="contained" color="primary" size="large" type="submit" fullWidth>Upload</Button>
       </form>
   </Paper>
-
+</ThemeProvider>
 
   );
 };

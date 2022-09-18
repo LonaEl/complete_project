@@ -1,6 +1,6 @@
 /* import { makeStyles } from "@mui/styles"; */
 
-import { createTheme } from "@mui/system";
+import createTheme from "@mui/system/createTheme";
 
  const theme = createTheme({
   paper: {
