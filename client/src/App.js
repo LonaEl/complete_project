@@ -9,8 +9,7 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
 import CreatorOrTag from './components/CreatorOrTag/CreatorOrTag';
-import PasswordReset from './components/PasswordReset/PasswordReset';
-import ForgotPassword from './components/ForgotPassword/ForgotPassword';
+
 import Claim from './components/Claim/Claim';
 import Terms from './components/Terms/Terms';
 
@@ -31,8 +30,7 @@ const App = () => {
           <Route exact path="/auth" element={(!user ? <Auth /> : <Navigate to="/posts" />)} />
           <Route exact path="/claim" element={<Claim />} />
           <Route exact path="/termsandconditions" element={<Terms />} />
-          <Route exact path="/forgot-password" element={<ForgotPassword />} />
-          <Route exact path="/forgot-reset/:id/:token" element={<PasswordReset /> } />
+    
         </Routes>
       </Container>
     </ThemeProvider>
